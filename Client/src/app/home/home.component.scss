@@ -1,0 +1,24 @@
+.featured {
+    height: 250px;
+}
+
+img {
+    object-fit: cover;
+    height: 600px;
+    width: 100%;
+}
+.ngx-json-viewer[_ngcontent-cjm-c21] .segment-type-array[_ngcontent-cjm-c21] > .segment-main[_ngcontent-cjm-c21] > * {
+    white-space: initial !important;
+}
+.chistory > .commit-history > .ngx-json-viewer > *:last-child {
+    white-space: initial !important;
+}
+
+.chistory.commit-history.ngx-json-viewer > * {
+    white-space: initial !important;
+}
+
+.commit-history > * {
+    word-break: break-all !important;
+    word-wrap: initial !important;
+}
