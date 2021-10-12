@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   data = {
-    "commits": [
+   "commits": [
       {
          "id": "78117b2af300cf2fb136f2d5a5362539b82af896",
          "parents": [],
@@ -188,6 +188,23 @@ export class HomeComponent implements OnInit {
          
          "space": 0,
          "time": 10
+      },
+      {
+         "id": "a03f8bdb3c318b1bacf6e2e8c735413196f0d33d",
+         "parents": [
+            [
+               "47602e555625fe2255999bb1a298d15b23faff6c",
+               10,
+               0
+            ]
+         ],
+         "message": "Done Client: Breadcrumb and Service, Section Header, Styling Product Items, Bootstrap Theme (Bootswatch), Loading Indicator (Spinner), Home Page Content and Commit History",
+         "author": "ygtalp",
+         
+         "date": "2021-10-07 13:02:39",
+         
+         "space": 0,
+         "time": 11
       }
    ]
   };
