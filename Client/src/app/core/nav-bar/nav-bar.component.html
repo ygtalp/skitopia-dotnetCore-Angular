@@ -7,12 +7,12 @@
         <a class="p-2" routerLink="/test-error" routerLinkActive="active">Errors</a>
     </nav>
     <div class="d-flex align-items-center">
-        <a class="position-relative">
-            <i class="fa fa-shopping-cart fa-2mx mr-5 text-dark">
-                <div class="cart-no">5</div>
+        <a routerLink='/basket' class="position-relative">
+            <i class="fa fa-shopping-cart fa-2x mr-5 text-dark">
+                <div *ngIf="(basket$ | async) as basket" class="cart-no">{{basket.items.length}}</div>
             </i>
         </a>
-        <a class="btn btn-success mr-2" href="#" style="color: #fff;">Login</a>
-        <a class="btn btn-outline-primary mr-3" href="#">Sign up</a>
+        <a class="btn btn-success mr-2" href="#" style="color: #fff; width: 120px;">Login</a>
+        <a class="btn btn-outline-primary mr-3" href="#" style="width: 120px;">Sign up</a>
     </div>
 </div>

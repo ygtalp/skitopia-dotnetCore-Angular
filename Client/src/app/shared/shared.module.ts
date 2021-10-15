@@ -5,12 +5,14 @@ import { PagingHeaderComponent } from './components/paging-header/paging-header.
 import { PagerComponent } from './components/pager/pager.component';
 import { CarouselModule } from 'ngx-bootstrap/carousel'
 import { NgxJsonViewerModule } from 'ngx-json-viewer';
+import { OrderTotalsComponent } from './components/order-totals/order-totals.component';
 
 
 @NgModule({
   declarations: [
     PagingHeaderComponent,
-    PagerComponent
+    PagerComponent,
+    OrderTotalsComponent
   ],
   imports: [
     CommonModule,
@@ -23,7 +25,8 @@ import { NgxJsonViewerModule } from 'ngx-json-viewer';
     PagingHeaderComponent,
     PagerComponent,
     CarouselModule,
-    NgxJsonViewerModule
+    NgxJsonViewerModule,
+    OrderTotalsComponent
   ]
 })
 export class SharedModule { }
