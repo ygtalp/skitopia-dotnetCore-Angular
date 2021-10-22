@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
 using Kernel.Entities;
+using Kernel.Entities.OrderAggregate;
 using Microsoft.Extensions.Logging;
 
 namespace Structure.Data
@@ -49,6 +50,19 @@ namespace Structure.Data
                     foreach (var item in products)
                     {
                         context.Products.Add(item);
+                    }
+
+                    await context.SaveChangesAsync();
+                }
+
+                if (!context.DeliveryMethod.Any())
+                {
+                    var dmData = File.ReadAllText("../Structure/Data/SeedData/delivery.json");
+                    var methods = JsonSerializer.Deserialize<List<DeliveryMethod>>(dmData);
+
+                    foreach (var item in methods)
+                    {
+                        context.DeliveryMethod.Add(item);
                     }
 
                     await context.SaveChangesAsync();
