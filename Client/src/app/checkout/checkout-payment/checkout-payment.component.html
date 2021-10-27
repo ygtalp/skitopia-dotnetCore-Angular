@@ -1,11 +1,89 @@
-<p>checkout-payment works!</p>
+<div class="mt-4" [formGroup]="checkoutForm">
+    <div class="row">
+        <div class="form-group col-12" formGroupName="paymentForm">
+            <app-text-input [label]="'Name on card'" formControlName="nameOnCard"></app-text-input>
+        </div>
+        <div class="form-group col-6">
+            <div #cardNumber class="form-control py-3"></div>
+            <ng-container *ngIf="cardErrors">
+                <span class="text-danger">{{cardErrors}}</span>
+            </ng-container>
+        </div>
+        <div class="form-group col-3">
+            <div #cardExpiry class="form-control py-3"></div>
+        </div>
+        <div class="form-group col-3">
+            <div #cardCvc class="form-control py-3"></div>
+        </div>
+    </div>
+</div>
+<hr>
+<div class="table-responsive mb-5">
+    <h5 class="text-center">You can enter the desired card number below for the test case you want</h5>
+    <table class="table table-borderless">
+        <thead class="border-0 py-2 thead-light">
+            <tr>
+                <th scope="col-6">
+                    <div class="p-2 px-3 text-uppercase">Card Number</div>
+                </th>
+                <th scope="col-2">
+                    <div class="py-2 text-uppercase">Description</div>
+                </th>
+                <th scope="col-2">
+                    <div class="py-2 text-uppercase">Date</div>
+                </th>
+                <th scope="col-2">
+                    <div class="py-2 text-uppercase">CVC</div>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="align-middle">4242 4242 4242 4242</td>
+                <td class="align-middle">No authentication (default U.S. card).</td>
+                <td class="align-middle">Any future date</td>
+                <td class="align-middle">Any 3 digits</td>
+            </tr>
+            <tr>
+                <td class="align-middle">4000 0027 6000 3184</td>
+                <td class="align-middle">Authentication required. (3D secure)</td>
+                <td class="align-middle">Any future date</td>
+                <td class="align-middle">Any 3 digits</td>
+            </tr>
+            <tr>
+                <td class="align-middle">4000 0000 0000 9995</td>
+                <td class="align-middle">The decline_code attribute is <strong>insufficient_funds</strong>.</td>
+                <td class="align-middle">Any future date</td>
+                <td class="align-middle">Any 3 digits</td>
+            </tr>
+            <tr>
+                <td class="align-middle">4000 0000 0000 9979</td>
+                <td class="align-middle">The decline_code attribute is <strong>stolen_card</strong>.</td>
+                <td class="align-middle">Any future date</td>
+                <td class="align-middle">Any 3 digits</td>
+            </tr>
+            <tr>
+                <td class="align-middle">4000 0000 0000 0069</td>
+                <td class="align-middle">Charge is declined with an <strong>expired_card</strong> code.</td>
+                <td class="align-middle">Any future date</td>
+                <td class="align-middle">Any 3 digits</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
 
 <div class="float-none d-flex justify-content-between flex-column flex-lg-row mb-5">
     <button class="btn btn-outline-primary" cdkStepperPrevious>
         <i class="fa fa-angle-left"></i> Back to Review
     </button>
-    <button class="btn btn-primary" (click)="submitOrder()">
+    <button 
+        [disabled]="loading 
+            || checkoutForm.get('paymentForm').invalid 
+            || !cardNumberValid 
+            || !cardExpiryValid 
+            || !cardCvcValid" class="btn btn-primary" (click)="submitOrder()">
         Submit Order <i class="fa fa-angle-right"></i>
+        <i *ngIf="loading" class="fa fa-spinner fa-spin"></i>
     </button>
 </div>

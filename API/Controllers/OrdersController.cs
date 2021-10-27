@@ -45,6 +45,7 @@ namespace API.Controllers
             var email = HttpContext.User.RetrieveEmailFromPrincipal();
 
             var orders = await _orderService.GetOrdersForUserAsync(email);
+            if(orders == null) return BadRequest(new ApiResponse(400, "Problem getting orders"));
 
             return Ok(_mapper.Map<IReadOnlyList<Order>, IReadOnlyList<OrderToReturnDto>>(orders));
         }

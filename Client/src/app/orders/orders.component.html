@@ -21,4 +21,16 @@
             </table>
         </div>
     </div>
+    <div class="text-center mt-3 mb-5">
+        <h5>Status would not be "pending" if the payment was <strong>real.</strong> When we listen to stripe with webhook,
+            the status changes according to the hook status. But we can't watch hooks because it is running as CLI.
+        </h5>
+        <hr>
+        <h5> The webhook functions for the CLI are available in payments.controller. What you need to do is to download
+            Stripe CLI, open command prompt in its directory, type <code>stripe login</code> and connect your account,
+            then run the
+            code <br> <code>stripe listen -f https://localhost:5001/api/payments/webhooks -e payment_intent.succeeded,
+            payment_intent.payment_failed</code>  <u> then complete payment</u> and response is in cmd.</h5>
+            <img src="../../assets/images/stripe.png" alt="stripe" style="width: 1000px;">
+    </div>
 </div>
