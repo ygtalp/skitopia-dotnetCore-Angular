@@ -1,3 +1,14 @@
-.skitopia-red{
-color: #f05330;
+$skitopiaColor: #f05330;
+$skitopiaCatsColor: #008cba;
+.skitopia-red {
+    color: #f05330;
+}
+.list-group-item {
+    cursor: pointer;
+    font-size: 1.1rem;
+
+    &:not(.active):hover {
+        color: #fff;
+        background-color: lighten($skitopiaCatsColor, 5%);
+    }
 }
