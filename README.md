@@ -80,6 +80,12 @@ Then type:
 
 To see front end go to https://localhost:4200/
 
+### Login credentials:
+
+username: bob@test.com
+
+password: Pa$$w0rd
+
 **If you don't run docker container, can't see products.**
 ##
 
